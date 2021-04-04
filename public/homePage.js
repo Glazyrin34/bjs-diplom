@@ -59,15 +59,15 @@ moneyManager.conversionMoneyCallback = data => {
       const msg = `Конвертация ${data.fromAmount} ${data.fromCurrency} в ${data.targetCurrency}`;
       checkStatus(data, response, msg);
     })
-  }
+}
   
 //Реализация перевода валюты
 moneyManager.sendMoneyCallback = data => {
     ApiConnector.transferMoney(data, response => {
       const msg = `Перевод ${data.amount} ${data.currency } пользователю ID ${data.to}`;
-      checkСondition(data, response, msg);
+      checkStatus(data, response, msg);
     })
-  }
+}
   
 //Работа с избранными
 const favoritesWidget = new FavoritesWidget();
@@ -77,14 +77,14 @@ function getCurrentDataList(response){
     favoritesWidget.clearTable();
     favoritesWidget.fillTable(response.data);
     moneyManager.updateUsersList(response.data);
-  }
+}
 
 //Запрос начального списка избранного
 ApiConnector.getFavorites(response => {
     if(response.success){
       getCurrentDataList(response);
     }
-  })
+})
 
 //Реализация добавления пользователя в список избранных
 favoritesWidget.addUserCallback = data => {
@@ -96,7 +96,7 @@ favoritesWidget.addUserCallback = data => {
         moneyManager.setMessage(response.success, response.error);
       }
     }) 
-  }
+}
 
 //Реализация удаления пользователя из избранного
 favoritesWidget.removeUserCallback = data => {
@@ -108,4 +108,4 @@ favoritesWidget.removeUserCallback = data => {
         moneyManager.setMessage(response.success, response.error);
       }
     }) 
-  }
+}
