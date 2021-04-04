@@ -1,8 +1,8 @@
-  
-"use strict"
+  "use strict"
 
 const userForm = new UserForm();
 
+//Вход
 userForm.loginFormCallback = data => {
   ApiConnector.login(data, response => {
     console.log(response);
@@ -13,6 +13,7 @@ userForm.loginFormCallback = data => {
   });
 };
 
+//Регистрация
 userForm.registerFormCallback = data => {
   ApiConnector.register(data, response => {
     console.log(response);
