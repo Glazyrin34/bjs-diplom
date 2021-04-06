@@ -91,9 +91,9 @@ favoritesWidget.addUserCallback = data => {
     ApiConnector.addUserToFavorites(data, response => {
       if(response.success){
         getCurrentDataList(response);
-        moneyManager.setMessage(response.success, `${data.name} добавлен`);
+        favoritesWidget.setMessage(response.success, `${data.name} добавлен`);
       } else {
-        moneyManager.setMessage(response.success, response.error);
+        favoritesWidget.setMessage(response.success, response.error);
       }
     }) 
 }
@@ -103,9 +103,9 @@ favoritesWidget.removeUserCallback = data => {
     ApiConnector.removeUserFromFavorites(data, response => {
       if(response.success){
         getCurrentDataList(response);
-        moneyManager.setMessage(response.success, `ID ${data} удален`);
+        favoritesWidget.setMessage(response.success, `ID ${data} удален`);
       } else {
-        moneyManager.setMessage(response.success, response.error);
+        favoritesWidget.setMessage(response.success, response.error);
       }
     }) 
 }
